@@ -26,12 +26,12 @@ internal static class AnecdoteEndpointsExtensions
             .Produces(200)
             .WithOpenApi();
 
-        //group.MapPost("get-all", async ([FromServices] IMediator mediator, [FromBody] SubscriberCreateViewModel model, HttpContext context) =>
-        //    await mediator.Send(new SubscriberGetAllRequest(model), context.RequestAborted))
-        //    .RequireAuthorization(AppData.DefaultPolicyName)
-        //    .RequireAuthorization(x => x.RequireRole(AppData.AdministratorRoleName))
-        //    .Produces(200)
-        //    .ProducesProblem(401)
-        //    .WithOpenApi();
+        group.MapGet("get-all", async ([FromServices] IMediator mediator, HttpContext context) =>
+            await mediator.Send(new SubscriberGetAllRequest(), context.RequestAborted))
+            .RequireAuthorization(AppData.DefaultPolicyName)
+            .RequireAuthorization(x => x.RequireRole(AppData.AdministratorRoleName))
+            .Produces(200)
+            .ProducesProblem(401)
+            .WithOpenApi();
     }
 }

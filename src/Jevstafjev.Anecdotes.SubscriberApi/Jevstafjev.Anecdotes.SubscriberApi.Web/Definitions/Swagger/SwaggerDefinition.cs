@@ -71,7 +71,7 @@ public class SwaggerDefinition : AppDefinition
             options.DefaultModelsExpandDepth(0);
             options.DocExpansion(DocExpansion.None);
             options.OAuthScopeSeparator(" ");
-            options.OAuthClientId("swagger-client-id");
+            options.OAuthClientId("subscriber-swagger-id");
             options.OAuthClientSecret("secret");
             options.OAuthAppName("Anecdotes");
             options.OAuth2RedirectUrl("https://localhost:8001/swagger/oauth2-redirect.html");

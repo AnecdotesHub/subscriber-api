@@ -29,7 +29,7 @@ public class AuthorizationDefinition : AppDefinition
                     {
                         NameClaimType = JwtClaimTypes.Name,
                         ValidateAudience = true,
-                        ValidAudience = "AnecdoteApi"
+                        ValidAudience = "SubscriberApi"
                     };
                     options.Events = new JwtBearerEvents
                     {

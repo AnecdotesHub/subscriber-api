@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Jevstafjev.Anecdotes.SubscriberApi.Domain;
 
-namespace Jevstafjev.Anecdotes.AnecdoteApi.Infrastructure.ModelConfigurations;
+namespace Jevstafjev.Anecdotes.SubscriberApi.Infrastructure.ModelConfigurations;
 
 public class SubscriberModelConfiguration : IEntityTypeConfiguration<Subscriber>
 {

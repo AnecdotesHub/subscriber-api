@@ -70,7 +70,14 @@ public class AuthorizationDefinition : AppDefinition
             options.AddPolicy(AppData.DefaultPolicyName, x =>
             {
                 x.AddAuthenticationSchemes(JwtBearerDefaults.AuthenticationScheme);
-                x.RequireAuthenticatedUser();
+                x.RequireAssertion(context =>
+                {
+                    var clientId = context.User.FindFirst("client_id")?.Value;
+                    if (clientId == "notification-service-client")
+                        return true;
+
+                    return context.User.IsInRole("Administrator");
+                });
             });
         });
     }
